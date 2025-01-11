@@ -6,10 +6,10 @@ import { Dropdown } from "primereact/dropdown";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [accountType, setAccountType] = useState(null); // Track selected account type
-  const [accountCurrency, setAccountCurrency] = useState(null); // Track selected account Currency
-  const [accountRunningProces, setAccountRunningProces] = useState(null); // Track selected account Running Proces process
-  const [modernBankingFacility, setModernBankingFacility] = useState(null); // Track selected Modern Banking Facility
+  const [accountType] = useState(null); // Track selected account type
+  const [accountCurrency] = useState(null); // Track selected account Currency
+  const [accountRunningProces] = useState(null); // Track selected account Running Proces process
+  const [modernBankingFacility] = useState(null); // Track selected Modern Banking Facility
   const [formData, setFormData] = useState({
     accountTitleBn: "",
     accountTitleEn: "",
@@ -103,16 +103,16 @@ const Home = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    const formObject = {
-      accountType,
-      accountCurrency,
-      accountRunningProces,
-      modernBankingFacility,
-      ...formData,
-    };
-    console.log(formObject);
-  };
+  // const handleSubmit = () => {
+  //   const formObject = {
+  //     accountType,
+  //     accountCurrency,
+  //     accountRunningProces,
+  //     modernBankingFacility,
+  //     ...formData,
+  //   };
+  //   console.log(formObject);
+  // };
 
   const renderStepContent = (step) => {
     switch (step) {
