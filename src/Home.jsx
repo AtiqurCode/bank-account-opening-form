@@ -104,12 +104,12 @@ import { Dropdown } from "primereact/dropdown";
     }));
   };
 
-  const handleSubmit = () => {
-    const formObject = {
-      ...formData,
-    };
-    console.log(formObject);
-  };
+  // const handleSubmit = () => {
+  //   const formObject = {
+  //     ...formData,
+  //   };
+  //   console.log(formObject);
+  // };
 
   const renderStepContent = (step) => {
     switch (step) {
