@@ -4,12 +4,13 @@ import { InputText } from "primereact/inputtext";
 import { Steps } from "primereact/steps";
 import { Dropdown } from "primereact/dropdown";
 
-const Home = () => {
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * This is the main component of the account opening wizard.
+ * It renders the steps for the wizard and handles the navigation between steps.
+ * @returns {ReactElement} The JSX element for the component.
+/******  1de5e0a0-8122-49c6-8cd9-59f37ff2e951  *******/const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [accountType] = useState(null); // Track selected account type
-  const [accountCurrency] = useState(null); // Track selected account Currency
-  const [accountRunningProces] = useState(null); // Track selected account Running Proces process
-  const [modernBankingFacility] = useState(null); // Track selected Modern Banking Facility
   const [formData, setFormData] = useState({
     accountTitleBn: "",
     accountTitleEn: "",
@@ -103,16 +104,12 @@ const Home = () => {
     }));
   };
 
-  // const handleSubmit = () => {
-  //   const formObject = {
-  //     accountType,
-  //     accountCurrency,
-  //     accountRunningProces,
-  //     modernBankingFacility,
-  //     ...formData,
-  //   };
-  //   console.log(formObject);
-  // };
+  const handleSubmit = () => {
+    const formObject = {
+      ...formData,
+    };
+    console.log(formObject);
+  };
 
   const renderStepContent = (step) => {
     switch (step) {
