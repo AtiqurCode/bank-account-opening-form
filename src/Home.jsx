@@ -163,7 +163,9 @@ const Home = () => {
                   className="p-dropdown-sm"
                   value={formData.accountType}
                   options={accountTypes}
-                  onChange={(e) => setAccountType(e.value)}
+                  onChange={(e) =>
+                    setFormData({ ...formData, accountType: e.value })
+                  }
                   placeholder="Select account type"
                 />
               </div>
@@ -184,7 +186,9 @@ const Home = () => {
                   className="p-dropdown-sm"
                   value={formData.accountCurrency}
                   options={accountCurrencies}
-                  onChange={(e) => setAccountCurrency(e.value)}
+                  onChange={(e) =>
+                    setFormData({ ...formData, accountCurrency: e.value })
+                  }
                   placeholder="Select account type"
                 />
               </div>
@@ -205,7 +209,9 @@ const Home = () => {
                   className="p-dropdown-sm"
                   value={formData.accountRunningProces}
                   options={accountRunningProcess}
-                  onChange={(e) => setAccountRunningProces(e.value)}
+                  onChange={(e) =>
+                    setFormData({ ...formData, accountRunningProces: e.value })
+                  }
                   placeholder="Select account type"
                 />
               </div>
@@ -222,18 +228,20 @@ const Home = () => {
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
-                  id="initialDepositAmount"
+                  id="initialDepositAmountBn"
                   className="p-inputtext-sm"
                   placeholder="(বাংলায়)"
                   value={formData.initialDepositAmountBn}
+                  onChange={handleChange}
                 />
               </div>
               <div className="p-col-12 pt-2 flex flex-column">
                 <InputText
-                  id="initialDepositAmount"
+                  id="initialDepositAmountEn"
                   className="p-inputtext-sm"
                   placeholder="(কথায়)"
                   value={formData.initialDepositAmountEn}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -253,7 +261,9 @@ const Home = () => {
                   className="p-dropdown-sm"
                   value={formData.modernBankingFacility}
                   options={modernBankingFacilities}
-                  onChange={(e) => setModernBankingFacility(e.value)}
+                  onChange={(e) =>
+                    setFormData({ ...formData, modernBankingFacility: e.value })
+                  }
                   placeholder="Select account type"
                 />
               </div>
@@ -277,18 +287,20 @@ const Home = () => {
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
-                  id="accountHolderName"
+                  id="accountHolderNameBn"
                   className="p-inputtext-sm"
                   placeholder="(বাংলায়)"
                   value={formData.accountHolderNameBn}
+                  onChange={handleChange}
                 />
               </div>
               <div className="p-col-12 pt-2 flex flex-column">
                 <InputText
-                  id="accountHolderName"
+                  id="accountHolderNameEn"
                   className="p-inputtext-sm"
                   placeholder="In English (Block Letter)"
                   value={formData.accountHolderNameEn}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -308,6 +320,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="DD/MM/YYYY"
                   value={formData.dateOfBirth}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -327,6 +340,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Father Name"
                   value={formData.accountFatherName}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -346,6 +360,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Mother Name"
                   value={formData.accountMotherName}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -365,6 +380,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Spouce Name"
                   value={formData.accountSpouceName}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -384,6 +400,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="your country"
                   value={formData.accountNationality}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -403,6 +420,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Gender"
                   value={formData.accountGender}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -422,6 +440,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Occupation (Details)"
                   value={formData.accountOccupation}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -441,6 +460,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Monthly Income"
                   value={formData.accountMonthlyIncome}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -460,6 +480,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Income Source"
                   value={formData.accountIncomeSource}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -479,6 +500,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Current Address"
                   value={formData.accountCurrentAddress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -498,6 +520,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Parmanent Address"
                   value={formData.accountParmanentAddress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -518,10 +541,11 @@ const Home = () => {
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
-                  id="NomineeName"
+                  id="nomineeNameBn"
                   className="p-inputtext-sm"
                   placeholder="(বাংলায়)"
                   value={formData.nomineeNameBn}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -541,6 +565,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Current Address"
                   value={formData.nomineeCurrentAddress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -560,6 +585,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Parmanent Address"
                   value={formData.nomineeParmanentAddress}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -579,6 +605,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Percentage %"
                   value={formData.nomineePercentage}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -598,6 +625,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="Relation"
                   value={formData.nomineeRelation}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -617,6 +645,7 @@ const Home = () => {
                   className="p-inputtext-sm"
                   placeholder="National Identity Card Number"
                   value={formData.nomineeNID}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -634,16 +663,8 @@ const Home = () => {
                   className="p-col-fixed"
                   style={{ textAlign: "right", fontSize: "14px" }}
                 >
-                  {key}:
+                  <h4>{key} : {formData[key]}</h4>
                 </label>
-                <div className="p-col-12 flex flex-column">
-                  <InputText
-                    id={key}
-                    className="p-inputtext-sm"
-                    value={formData[key]}
-                    readOnly
-                  />
-                </div>
               </div>
             ))}
           </div>
@@ -669,21 +690,21 @@ const Home = () => {
         <div className="content" style={{ maxWidth: "900px", width: "100%" }}>
           {renderStepContent(activeIndex)}
         </div>
-        <div className="buttons flex" style={{ marginTop: "20px" }}>
-          <Button
-            label="Prev"
-            icon="pi pi-arrow-left"
-            className="p-button-secondary mr-2"
-            onClick={handlePrev}
-            disabled={activeIndex === 0}
-          />
-          <Button
-            label={activeIndex === steps.length - 1 ? "Submit" : "Next"}
-            icon="pi pi-arrow-right"
-            className="p-button-primary"
-            onClick={handleNext}
-          />
-        </div>
+        <div className="buttons flex justify-content-center" style={{ marginTop: "20px" }}>
+  <Button
+    label="Prev"
+    icon="pi pi-arrow-left"
+    className="p-button-secondary mr-2"
+    onClick={handlePrev}
+    disabled={activeIndex === 0}
+  />
+  <Button
+    label={activeIndex === steps.length - 1 ? "Submit" : "Next"}
+    icon="pi pi-arrow-right"
+    className="p-button-primary"
+    onClick={handleNext}
+  />
+</div>
       </div>
     </div>
   );
