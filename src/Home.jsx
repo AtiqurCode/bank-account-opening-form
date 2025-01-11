@@ -691,20 +691,20 @@ const Home = () => {
           {renderStepContent(activeIndex)}
         </div>
         <div className="buttons flex justify-content-center" style={{ marginTop: "20px" }}>
-  <Button
-    label="Prev"
-    icon="pi pi-arrow-left"
-    className="p-button-secondary mr-2"
-    onClick={handlePrev}
-    disabled={activeIndex === 0}
-  />
-  <Button
-    label={activeIndex === steps.length - 1 ? "Submit" : "Next"}
-    icon="pi pi-arrow-right"
-    className="p-button-primary"
-    onClick={handleNext}
-  />
-</div>
+          <Button
+            label="Prev"
+            icon="pi pi-arrow-left"
+            className="p-button-secondary mr-2"
+            onClick={handlePrev}
+            disabled={activeIndex === 0}
+          />
+          <Button
+            label={activeIndex === steps.length - 1 ? "Submit" : "Next"}
+            icon="pi pi-arrow-right"
+            className="p-button-primary"
+            onClick={handleNext}
+          />
+        </div>
       </div>
     </div>
   );
