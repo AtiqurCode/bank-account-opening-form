@@ -3,6 +3,7 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Steps } from "primereact/steps";
 import { Dropdown } from "primereact/dropdown";
+import { Checkbox } from 'primereact/checkbox';
 
 /*************  ✨ Codeium Command ⭐  *************/
 /**
@@ -35,6 +36,9 @@ import { Dropdown } from "primereact/dropdown";
     nomineePercentage: "",
     nomineeRelation: "",
     nomineeNID: "",
+    accountType: "",
+    accountCurrency: "",
+    modernBankingFacility: [],
   });
   // Define the steps for the wizard
   const steps = [
@@ -84,6 +88,10 @@ import { Dropdown } from "primereact/dropdown";
     { label: "Others", value: "Others" },
   ];
 
+  const onAccountTypeChange = (e) => {
+    setFormData({ ...formData, accountType: e.value });
+};
+
   const handleNext = () => {
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
@@ -95,6 +103,13 @@ import { Dropdown } from "primereact/dropdown";
       setActiveIndex(activeIndex - 1);
     }
   };
+
+  function formatKey (key) {
+    return key
+      .replace(/([A-Z])/g, ' $1') // Add space before each capital letter
+      .replace(/^./, (str) => str.toUpperCase()) // Capitalize the first letter
+      .trim(); // Remove any leading/trailing spaces
+  }
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -170,6 +185,7 @@ import { Dropdown } from "primereact/dropdown";
 
             {/* Currency select */}
             <div className="field p-grid">
+              <div className="p-col-12 pt-2 flex flex-row gap-4">
               <label
                 htmlFor="accountCurrency"
                 className="p-col-fixed"
@@ -177,17 +193,26 @@ import { Dropdown } from "primereact/dropdown";
               >
                 মুদ্রা (Currency ):
               </label>
-              <div className="p-col-12  pt-2 flex flex-column">
-                <Dropdown
-                  id="accountCurrency"
-                  className="p-dropdown-sm"
-                  value={formData.accountCurrency}
-                  options={accountCurrencies}
-                  onChange={(e) =>
-                    setFormData({ ...formData, accountCurrency: e.value })
-                  }
-                  placeholder="Select account type"
-                />
+                {accountCurrencies.map((currency) => (
+                  <div key={currency.value} className="flex align-items-center">
+                    <Checkbox
+                      inputId={currency.value}
+                      name="account-currency"
+                      value={currency.value}
+                      onChange={(e) => {
+                        setFormData({ ...formData, accountCurrency: [e.value] });
+                      }}
+                      checked={formData.accountCurrency.includes(currency.value)}
+                    />
+                    <label
+                      htmlFor={currency.value}
+                      className="ml-2"
+                      style={{ fontSize: "14px" }}
+                    >
+                      {currency.label}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -245,24 +270,37 @@ import { Dropdown } from "primereact/dropdown";
 
             {/* Modern banking facilities */}
             <div className="field p-grid">
-              <label
-                htmlFor="modernBankingFacility"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                আধুনিক ব্যাংকিং সুবিধা:
-              </label>
-              <div className="p-col-12  pt-2 flex flex-column">
-                <Dropdown
-                  id="modernBankingFacility"
-                  className="p-dropdown-sm"
-                  value={formData.modernBankingFacility}
-                  options={modernBankingFacilities}
-                  onChange={(e) =>
-                    setFormData({ ...formData, modernBankingFacility: e.value })
-                  }
-                  placeholder="Select account type"
-                />
+              <div className="p-col-12 pt-2 flex flex-row gap-3">
+                <label
+                  htmlFor="modernBankingFacility"
+                  className="p-col-fixed"
+                  style={{ textAlign: "right", fontSize: "14px" }}
+                >
+                  আধুনিক ব্যাংকিং সুবিধা:
+                </label>
+                {modernBankingFacilities.map((facility) => (
+                  <div key={facility.value} className="flex align-items-center">
+                    <Checkbox
+                      inputId={facility.value}
+                      name="modern-banking-facility"
+                      value={facility.value}
+                      onChange={(e) => {
+                        const selectedFacilities = formData.modernBankingFacility.includes(e.value)
+                          ? formData.modernBankingFacility.filter((f) => f !== e.value)
+                          : [...formData.modernBankingFacility, e.value];
+                        setFormData({ ...formData, modernBankingFacility: selectedFacilities });
+                      }}
+                      checked={formData.modernBankingFacility.includes(facility.value)}
+                    />
+                    <label
+                      htmlFor={facility.value}
+                      className="ml-2"
+                      style={{ fontSize: "14px" }}
+                    >
+                      {facility.label}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -657,10 +695,10 @@ import { Dropdown } from "primereact/dropdown";
               <div key={key} className="field p-grid">
                 <label
                   htmlFor={key}
-                  className="p-col-fixed"
-                  style={{ textAlign: "right", fontSize: "14px" }}
+                  className="p-col-fixed m-0"
+                  style={{ textAlign: "right", fontSize: "16px" }}
                 >
-                  <h4>{key} : {formData[key]}</h4>
+                  <h4>{formatKey(key)} : {Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key]}</h4>
                 </label>
               </div>
             ))}
