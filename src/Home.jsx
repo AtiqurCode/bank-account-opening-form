@@ -88,10 +88,6 @@ import { Checkbox } from 'primereact/checkbox';
     { label: "Others", value: "Others" },
   ];
 
-  const onAccountTypeChange = (e) => {
-    setFormData({ ...formData, accountType: e.value });
-};
-
   const handleNext = () => {
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
