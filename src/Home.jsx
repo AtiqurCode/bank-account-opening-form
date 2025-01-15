@@ -88,6 +88,12 @@ import { Checkbox } from 'primereact/checkbox';
     { label: "Others", value: "Others" },
   ];
 
+  const genderOptions = [
+    { label: 'Male', value: 'Male' },
+    { label: 'Female', value: 'Female' },
+    { label: 'Others', value: 'Others' }
+  ];
+
   const handleNext = () => {
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
@@ -100,7 +106,7 @@ import { Checkbox } from 'primereact/checkbox';
     }
   };
 
-  function formatKey (key) {
+  function formatKey(key) {
     return key
       .replace(/([A-Z])/g, ' $1') // Add space before each capital letter
       .replace(/^./, (str) => str.toUpperCase()) // Capitalize the first letter
@@ -114,14 +120,6 @@ import { Checkbox } from 'primereact/checkbox';
       [id]: value,
     }));
   };
-
-  // const handleSubmit = () => {
-  //   const formObject = {
-  //     ...formData,
-  //   };
-  //   console.log(formObject);
-  // };
-
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -136,23 +134,25 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 হিসাবের শিরোনাম :
               </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountTitleBn"
-                  className="p-inputtext-sm"
-                  placeholder="(বাংলায়)"
-                  value={formData.accountTitleBn}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="p-col-12 pt-2 flex flex-column">
-                <InputText
-                  id="accountTitleEn"
-                  className="p-inputtext-sm"
-                  placeholder="In English (Block Letter)"
-                  value={formData.accountTitleEn}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="accountTitleBn"
+                    className="p-inputtext-sm"
+                    placeholder="(বাংলায়)"
+                    value={formData.accountTitleBn}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="accountTitleEn"
+                    className="p-inputtext-sm"
+                    placeholder="In English (Block Letter)"
+                    value={formData.accountTitleEn}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
@@ -182,13 +182,13 @@ import { Checkbox } from 'primereact/checkbox';
             {/* Currency select */}
             <div className="field p-grid">
               <div className="p-col-12 pt-2 flex flex-row gap-4">
-              <label
-                htmlFor="accountCurrency"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                মুদ্রা (Currency ):
-              </label>
+                <label
+                  htmlFor="accountCurrency"
+                  className="p-col-fixed"
+                  style={{ textAlign: "right", fontSize: "14px" }}
+                >
+                  মুদ্রা (Currency ):
+                </label>
                 {accountCurrencies.map((currency) => (
                   <div key={currency.value} className="flex align-items-center">
                     <Checkbox
@@ -244,23 +244,25 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 প্রাথমিক জমার পরিমান :
               </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="initialDepositAmountBn"
-                  className="p-inputtext-sm"
-                  placeholder="(বাংলায়)"
-                  value={formData.initialDepositAmountBn}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="p-col-12 pt-2 flex flex-column">
-                <InputText
-                  id="initialDepositAmountEn"
-                  className="p-inputtext-sm"
-                  placeholder="(কথায়)"
-                  value={formData.initialDepositAmountEn}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="initialDepositAmountBn"
+                    className="p-inputtext-sm"
+                    placeholder="(বাংলায়)"
+                    value={formData.initialDepositAmountBn}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="initialDepositAmountEn"
+                    className="p-inputtext-sm"
+                    placeholder="(কথায়)"
+                    value={formData.initialDepositAmountEn}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
@@ -307,7 +309,7 @@ import { Checkbox } from 'primereact/checkbox';
             <h3 className="text-center">
               দ্বিতীয় অংশ: ব্যক্তি সংক্রান্ত তথ্যাদি
             </h3>
-            {/* Account Holder name */}
+            {/* Account Holder name bangla and english*/}
             <div className="field p-grid">
               <label
                 htmlFor="accountHolderName"
@@ -316,23 +318,25 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 হিসাবধারীর নাম :
               </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountHolderNameBn"
-                  className="p-inputtext-sm"
-                  placeholder="(বাংলায়)"
-                  value={formData.accountHolderNameBn}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="p-col-12 pt-2 flex flex-column">
-                <InputText
-                  id="accountHolderNameEn"
-                  className="p-inputtext-sm"
-                  placeholder="In English (Block Letter)"
-                  value={formData.accountHolderNameEn}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="accountHolderNameBn"
+                    className="p-inputtext-sm"
+                    placeholder="(বাংলায়)"
+                    value={formData.accountHolderNameBn}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <InputText
+                    id="accountHolderNameEn"
+                    className="p-inputtext-sm"
+                    placeholder="In English (Block Letter)"
+                    value={formData.accountHolderNameEn}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
@@ -356,163 +360,166 @@ import { Checkbox } from 'primereact/checkbox';
               </div>
             </div>
 
-            {/* Account holder father name */}
             <div className="field p-grid">
-              <label
-                htmlFor="accountFatherName"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                পিতার নাম :
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountFatherName"
-                  className="p-inputtext-sm"
-                  placeholder="Father Name"
-                  value={formData.accountFatherName}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountFatherName"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    পিতার নাম :
+                  </label>
+                  <InputText
+                    id="accountFatherName"
+                    className="p-inputtext-sm"
+                    placeholder="Father Name"
+                    value={formData.accountFatherName}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountMotherName"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    মাতার নাম :
+                  </label>
+                  <InputText
+                    id="accountMotherName"
+                    className="p-inputtext-sm"
+                    placeholder="Mother Name"
+                    value={formData.accountMotherName}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Account holder father name */}
+            {/* Account holder spouce name  and nationality*/}
             <div className="field p-grid">
-              <label
-                htmlFor="accountMotherName"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                মাতার নাম :
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountMotherName"
-                  className="p-inputtext-sm"
-                  placeholder="Mother Name"
-                  value={formData.accountMotherName}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountSpouceName"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    স্বামী / স্ত্রীর নাম :
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountSpouceName"
+                      className="p-inputtext-sm"
+                      placeholder="Spouce Name"
+                      value={formData.accountSpouceName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountNationality"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    জাতীয়তা :
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountNationality"
+                      className="p-inputtext-sm"
+                      placeholder="your country"
+                      value={formData.accountNationality}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Account holder spouce name */}
+            {/* Account holder Gender and Occupation */}
             <div className="field p-grid">
-              <label
-                htmlFor="accountSpouceName"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                স্বামী / স্ত্রীর নাম :
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountSpouceName"
-                  className="p-inputtext-sm"
-                  placeholder="Spouce Name"
-                  value={formData.accountSpouceName}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountGender"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    লিঙ্গ :
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountGender"
+                      className="p-inputtext-sm"
+                      placeholder="Gender"
+                      value={formData.accountGender}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountOccupation"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    পেশা (বিস্তারিত ) :
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountOccupation"
+                      className="p-inputtext-sm"
+                      placeholder="Occupation (Details)"
+                      value={formData.accountOccupation}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Account holder Nationality */}
+            {/* Account holder monthly income and income source*/}
             <div className="field p-grid">
-              <label
-                htmlFor="accountNationality"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                জাতীয়তা :
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountNationality"
-                  className="p-inputtext-sm"
-                  placeholder="your country"
-                  value={formData.accountNationality}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Account holder Gender */}
-            <div className="field p-grid">
-              <label
-                htmlFor="accountGender"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                লিঙ্গ :
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountGender"
-                  className="p-inputtext-sm"
-                  placeholder="Gender"
-                  value={formData.accountGender}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Account holder Occupation */}
-            <div className="field p-grid">
-              <label
-                htmlFor="accountOccupation"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                পেশা (বিস্তারিত ):
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountOccupation"
-                  className="p-inputtext-sm"
-                  placeholder="Occupation (Details)"
-                  value={formData.accountOccupation}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Account holder Monthly Income*/}
-            <div className="field p-grid">
-              <label
-                htmlFor="accountMonthlyIncome"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                মাসিক আয়:
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountMonthlyIncome"
-                  className="p-inputtext-sm"
-                  placeholder="Monthly Income"
-                  value={formData.accountMonthlyIncome}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Account holder Income Source*/}
-            <div className="field p-grid">
-              <label
-                htmlFor="accountIncomeSource"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                অর্থের উৎস:
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="accountIncomeSource"
-                  className="p-inputtext-sm"
-                  placeholder="Income Source"
-                  value={formData.accountIncomeSource}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountMonthlyIncome"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    মাসিক আয়:
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountMonthlyIncome"
+                      className="p-inputtext-sm"
+                      placeholder="Monthly Income"
+                      value={formData.accountMonthlyIncome}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="accountIncomeSource"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    অর্থের উৎস:
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="accountIncomeSource"
+                      className="p-inputtext-sm"
+                      placeholder="Income Source"
+                      value={formData.accountIncomeSource}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -543,7 +550,7 @@ import { Checkbox } from 'primereact/checkbox';
                 className="p-col-fixed"
                 style={{ textAlign: "right", fontSize: "14px" }}
               >
-                স্থায়ী ঠিকানা:
+                স্থায়ী ঠিকানা :
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
@@ -568,7 +575,7 @@ import { Checkbox } from 'primereact/checkbox';
                 className="p-col-fixed"
                 style={{ textAlign: "right", fontSize: "14px" }}
               >
-                নমিনির নাম:
+                নমিনির নাম :
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
@@ -588,7 +595,7 @@ import { Checkbox } from 'primereact/checkbox';
                 className="p-col-fixed"
                 style={{ textAlign: "right", fontSize: "14px" }}
               >
-                নমিনির বর্তমান ঠিকানা:
+                নমিনির বর্তমান ঠিকানা :
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
@@ -608,7 +615,7 @@ import { Checkbox } from 'primereact/checkbox';
                 className="p-col-fixed"
                 style={{ textAlign: "right", fontSize: "14px" }}
               >
-                নমিনির স্থায়ী ঠিকানা:
+                নমিনির স্থায়ী ঠিকানা :
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
@@ -621,43 +628,45 @@ import { Checkbox } from 'primereact/checkbox';
               </div>
             </div>
 
-            {/* Account holder Nominee date of birth */}
+            {/* Account holder Nominee percentage and relation */}
             <div className="field p-grid">
-              <label
-                htmlFor="nomineePercentage"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                শতকরা হার:
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="nomineePercentage"
-                  className="p-inputtext-sm"
-                  placeholder="Percentage %"
-                  value={formData.nomineePercentage}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Account holder Nominee relation */}
-            <div className="field p-grid">
-              <label
-                htmlFor="nomineeRelation"
-                className="p-col-fixed"
-                style={{ textAlign: "right", fontSize: "14px" }}
-              >
-                হিসাবধারীর সাথে সম্পর্ক:
-              </label>
-              <div className="p-col-12 flex flex-column">
-                <InputText
-                  id="nomineeRelation"
-                  className="p-inputtext-sm"
-                  placeholder="Relation"
-                  value={formData.nomineeRelation}
-                  onChange={handleChange}
-                />
+              <div className="p-col-12 flex flex-row gap-4">
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="nomineePercentage"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    শতকরা হার :
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="nomineePercentage"
+                      className="p-inputtext-sm"
+                      placeholder="Percentage %"
+                      value={formData.nomineePercentage}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="flex-grow-1 flex flex-column">
+                  <label
+                    htmlFor="nomineeRelation"
+                    className="p-col-fixed"
+                    style={{ textAlign: "left", fontSize: "14px" }}
+                  >
+                    হিসাবধারীর সাথে সম্পর্ক:
+                  </label>
+                  <div className="p-col-12 flex flex-column">
+                    <InputText
+                      id="nomineeRelation"
+                      className="p-inputtext-sm"
+                      placeholder="Relation"
+                      value={formData.nomineeRelation}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -668,7 +677,7 @@ import { Checkbox } from 'primereact/checkbox';
                 className="p-col-fixed"
                 style={{ textAlign: "right", fontSize: "14px" }}
               >
-                জাতীয় পরিচয় পত্র নং:
+                জাতীয় পরিচয় পত্র নং :
               </label>
               <div className="p-col-12 flex flex-column">
                 <InputText
