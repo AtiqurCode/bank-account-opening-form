@@ -88,12 +88,6 @@ import { Checkbox } from 'primereact/checkbox';
     { label: "Others", value: "Others" },
   ];
 
-  const genderOptions = [
-    { label: 'Male', value: 'Male' },
-    { label: 'Female', value: 'Female' },
-    { label: 'Others', value: 'Others' }
-  ];
-
   const handleNext = () => {
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
