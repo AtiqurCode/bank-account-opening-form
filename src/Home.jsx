@@ -721,6 +721,9 @@ import { Checkbox } from 'primereact/checkbox';
         className="surface-0 p-4 shadow-2 border-round mx-auto mt-6"
         style={{ maxWidth: "900px", width: "100%" }}
       >
+        <div className="flex justify-content-center">
+          <img src="islami-bank-logo.png" alt="boaf" width={120} />
+        </div>
         <div className="content" style={{ maxWidth: "900px", width: "100%" }}>
           {renderStepContent(activeIndex)}
         </div>
