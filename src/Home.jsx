@@ -718,7 +718,7 @@ import { Checkbox } from 'primereact/checkbox';
       />
 
       <div
-        className="surface-0 p-4 shadow-2 border-round mx-auto mt-6"
+        className="surface-0 p-4 shadow-4 border-round mx-auto mt-6"
         style={{ maxWidth: "900px", width: "100%" }}
       >
         <div className="flex justify-content-center">
