@@ -715,10 +715,11 @@ import { Checkbox } from 'primereact/checkbox';
         activeIndex={activeIndex}
         onSelect={(e) => setActiveIndex(e.index)}
         style={{ fontSize: "14px" }}
+        className="hide-on-mobile mb-6"
       />
 
       <div
-        className="surface-0 p-4 shadow-4 border-round mx-auto mt-6"
+        className="surface-0 p-4 shadow-4 border-round mx-auto"
         style={{ maxWidth: "900px", width: "100%" }}
       >
         <div className="flex justify-content-center">

@@ -39,3 +39,9 @@
 body {
   font-family: 'Noto Sans Bengali', sans-serif;
 }
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
