@@ -88,18 +88,21 @@ import { Checkbox } from 'primereact/checkbox';
     { label: "Others", value: "Others" },
   ];
 
+  // Function to handle the next step
   const handleNext = () => {
     if (activeIndex < steps.length - 1) {
       setActiveIndex(activeIndex + 1);
     }
   };
 
+  // Function to handle the previous step
   const handlePrev = () => {
     if (activeIndex > 0) {
       setActiveIndex(activeIndex - 1);
     }
   };
 
+  // Function to format keys for display
   function formatKey(key) {
     return key
       .replace(/([A-Z])/g, ' $1') // Add space before each capital letter
@@ -107,6 +110,7 @@ import { Checkbox } from 'primereact/checkbox';
       .trim(); // Remove any leading/trailing spaces
   }
 
+  // Function to handle input changes
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -114,13 +118,15 @@ import { Checkbox } from 'primereact/checkbox';
       [id]: value,
     }));
   };
+
+  // Function to render content for each step
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
         return (
           <div>
             <h3 className="text-center">প্রথম অংশ : হিসাব সংক্রান্ত তথ্যাদি</h3>
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="accountTitleBn"
                 className="p-col-fixed"
@@ -128,7 +134,7 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 হিসাবের শিরোনাম :
               </label>
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <InputText
                     id="accountTitleBn"
@@ -151,7 +157,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account type select */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="accountType"
                 className="p-col-fixed"
@@ -174,12 +180,12 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Currency select */}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 pt-2 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 pt-2 flex flex-row gap-4">
                 <label
                   htmlFor="accountCurrency"
                   className="p-col-fixed"
-                  style={{ textAlign: "left", fontSize: "14px" }}
+                  style={{ textAlign: "right", fontSize: "14px" }}
                 >
                   মুদ্রা (Currency ):
                 </label>
@@ -207,7 +213,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* account running system select */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="AccountRunningProces"
                 className="p-col-fixed"
@@ -230,7 +236,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* initial deposit amount */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="initialDepositAmount"
                 className="p-col-fixed"
@@ -238,7 +244,7 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 প্রাথমিক জমার পরিমান :
               </label>
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <InputText
                     id="initialDepositAmountBn"
@@ -261,12 +267,12 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Modern banking facilities */}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 pt-2 flex flex-column md:flex-row gap-3">
+            <div className="field p-grid">
+              <div className="p-col-12 pt-2 flex flex-row gap-3">
                 <label
                   htmlFor="modernBankingFacility"
                   className="p-col-fixed"
-                  style={{ textAlign: "left", fontSize: "14px" }}
+                  style={{ textAlign: "right", fontSize: "14px" }}
                 >
                   আধুনিক ব্যাংকিং সুবিধা:
                 </label>
@@ -304,7 +310,7 @@ import { Checkbox } from 'primereact/checkbox';
               দ্বিতীয় অংশ: ব্যক্তি সংক্রান্ত তথ্যাদি
             </h3>
             {/* Account Holder name bangla and english*/}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="accountHolderName"
                 className="p-col-fixed"
@@ -312,7 +318,7 @@ import { Checkbox } from 'primereact/checkbox';
               >
                 হিসাবধারীর নাম :
               </label>
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <InputText
                     id="accountHolderNameBn"
@@ -335,7 +341,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder date of birth */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="dateOfBirth"
                 className="p-col-fixed"
@@ -354,8 +360,8 @@ import { Checkbox } from 'primereact/checkbox';
               </div>
             </div>
 
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <label
                     htmlFor="accountFatherName"
@@ -392,8 +398,8 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder spouce name  and nationality*/}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <label
                     htmlFor="accountSpouceName"
@@ -434,8 +440,8 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder Gender and Occupation */}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <label
                     htmlFor="accountGender"
@@ -476,8 +482,8 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder monthly income and income source*/}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <label
                     htmlFor="accountMonthlyIncome"
@@ -518,7 +524,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder current address*/}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="accountCurrentAddress"
                 className="p-col-fixed"
@@ -538,7 +544,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder Parmanent address*/}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="accountParmanentAddress"
                 className="p-col-fixed"
@@ -563,7 +569,7 @@ import { Checkbox } from 'primereact/checkbox';
           <div className="mb-10">
             <h3 className="text-center">তৃতীয় অংশ: নমিনি সংক্রান্ত তথ্যাদি</h3>
             {/* Account Holder Nominee name */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="NomineeName"
                 className="p-col-fixed"
@@ -583,7 +589,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder Nominee current address*/}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="nomineeCurrentAddress"
                 className="p-col-fixed"
@@ -603,7 +609,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder Nominee Parmanent address*/}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="nomineeParmanentAddress"
                 className="p-col-fixed"
@@ -623,8 +629,8 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder Nominee percentage and relation */}
-            <div className="field p-grid p-fluid">
-              <div className="p-col-12 flex flex-column md:flex-row gap-4">
+            <div className="field p-grid">
+              <div className="p-col-12 flex flex-row gap-4">
                 <div className="flex-grow-1 flex flex-column">
                   <label
                     htmlFor="nomineePercentage"
@@ -665,7 +671,7 @@ import { Checkbox } from 'primereact/checkbox';
             </div>
 
             {/* Account holder National Identity Card Number */}
-            <div className="field p-grid p-fluid">
+            <div className="field p-grid">
               <label
                 htmlFor="nomineeNID"
                 className="p-col-fixed"
@@ -688,19 +694,20 @@ import { Checkbox } from 'primereact/checkbox';
       case 3:
         return (
           <div>
-            <h3 clasclassName="text-center">শেষ অংশ: রিভিও এবং সাবমিট</h3>
+            <h3 className="text-center">শেষ অংশ: রিভিও এবং সাবমিট</h3>
             {/* loop all form data in here */}
-            {Object.keys(formData).map((key) => (
-              <div key={key} className="field p-grid">
-                <label
-                  htmlFor={key}
-                  className="p-col-fixed m-0"
-                  style={{ textAlign: "right", fontSize: "16px" }}
-                >
-                  <h4>{formatKey(key)} : {Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key]}</h4>
-                </label>
-              </div>
-            ))}
+            <div className="p-grid">
+              {Object.keys(formData).map((key) => (
+                <div key={key} className="p-col-12 p-md-6 mb-4">
+                  <div className="p-field">
+                    <label htmlFor={key} style={{ fontSize: "14px" }}>
+                      <strong>{formatKey(key)}:</strong>
+                    </label>
+                    <p>{Array.isArray(formData[key]) ? formData[key].join(', ') : formData[key]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         );
       default:
@@ -715,24 +722,23 @@ import { Checkbox } from 'primereact/checkbox';
         activeIndex={activeIndex}
         onSelect={(e) => setActiveIndex(e.index)}
         style={{ fontSize: "14px" }}
-        className="hide-on-mobile mb-6"
       />
 
       <div
-        className="surface-0 p-4 shadow-4 border-round mx-auto"
+        className="surface-0 p-4 shadow-4 border-round mx-auto mt-6"
         style={{ maxWidth: "900px", width: "100%" }}
       >
         <div className="flex justify-content-center">
           <img src="islami-bank-logo.png" alt="boaf" width={120} />
         </div>
-        <div className="content" style={{ maxWidth: "900px", width: "100%", padding: "0 1rem" }}>
+        <div className="content" style={{ maxWidth: "900px", width: "100%" }}>
           {renderStepContent(activeIndex)}
         </div>
-        <div className="buttons flex flex-column md:flex-row justify-content-center" style={{ marginTop: "20px" }}>
+        <div className="buttons flex justify-content-center" style={{ marginTop: "20px" }}>
           <Button
             label="Prev"
             icon="pi pi-arrow-left"
-            className="p-button-secondary mb-2 md:mb-0 md:mr-2"
+            className="p-button-secondary mr-2"
             onClick={handlePrev}
             disabled={activeIndex === 0}
           />
