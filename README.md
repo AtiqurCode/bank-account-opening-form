@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Project Preview
+![Bank account opening form](https://user-images.githubusercontent.com/69745890/134772013-3b3b3b3b-1b3b-4b1b-8b3b-3b3b3b3b3b3b.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
