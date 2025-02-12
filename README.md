@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## Project Preview
-![Bank account opening form](https://user-images.githubusercontent.com/69745890/134772013-3b3b3b3b-1b3b-4b1b-8b3b-3b3b3b3b3b3b.png)
+![Bank account opening form](https://github.com/AtiqurCode/bank-account-opening-form/blob/master/public/baof.png)
 
 ## Available Scripts
 
